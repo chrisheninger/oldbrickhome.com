@@ -52,8 +52,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: #f7f9fc;
-    color: #1f2228;
+    background: #1f2228;
+    color: #fff;
     margin: 0;
     padding: 0;
 }
@@ -67,9 +67,13 @@ html {
     box-sizing: inherit;
 }
 img {
+    display: block;
     max-width: 100%;
+    margin: auto;
 }
+
 .hero {
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -77,31 +81,29 @@ img {
     align-items: flex-end;
     width: 100%;
     height: auto;
-    min-height: 66.7vw; /* maintain original aspect ratio */
-    background: url('./assets/1200px/front-1.jpg') no-repeat;
-    background-size: cover;
-    background-position: center center;
     border: 4px solid #1f2228;
+}
+.hero::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: #000;
+    opacity: 0.1;
+}
+
+.hero h1 {
+    width: 100%;
+    position: absolute;
+    bottom: 2vw;
     font-size: 10vw;
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: -0.25vw -0.25vw 0 rgba(255,255,255,0.5);
-}
-.gallery {
-    width: 100%;
-    margin: 0 auto;
+    color: #fff;
+    text-shadow: -0.15vw -0.15vw 2px rgba(31, 34, 40, 0.5);
     text-align: center;
-    flex: 1 0 auto;
-}
-.gallery h1 {
-    width: 100%;
-    font-size: 10vw;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-.gallery img {
-    max-height: 100vh;
-    padding: 16px 0 24px;
+    z-index: 1;
 }
 
 .wall {
@@ -112,42 +114,47 @@ img {
     align-items: flex-start;
     padding: 0;
     margin: 0;
-    /*border: 4px solid #1f2228;*/
+    border-left: 4px solid #1f2228;
+    border-right: 4px solid #1f2228;
 }
 
 .brick {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-align: center;
-    flex: 1 0 auto;
+    width: 50%;
     height: auto;
-    border: 4px solid #1f2228;
-}
-
-.brick:before {
-    content: '';
-    float: left;
-    padding-top: 100%;
+    overflow: hidden;
 }
 
 .brick h2 {
+    width: 100%;
     position: absolute;
+    top: calc(50% - 3vw);
+    font-size: 6vw;
+    font-weight: bold;
     text-transform: uppercase;
-    font-size: 4vw;
-    word-wrap: break-word;
-    word-break: break-all;
+    color: #fff;
+    text-shadow: -0.15vw -0.15vw 2px rgba(31, 34, 40, 0.5);
+    text-align: center;
+    transition: all 300ms ease-in-out;
     z-index: 1;
 }
-.brick img {
+.brick:hover h2 {
+    transform: scale(1.1);
+}
+
+/* Overlay and hover effect */
+.brick::before {
+    content: '';
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: #000;
+    opacity: 0.5;
+    transition: all 300ms ease-in-out;
+}
+.brick:hover.brick::before {
+    opacity: 0.1;
 }
 
 
