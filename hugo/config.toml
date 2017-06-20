@@ -1,5 +1,5 @@
 baseURL = "http://oldbrickhome.com/blog/"
 languageCode = "en-us"
 title = "Old Brick Home | Historic Renovations"
-theme = "detox"
+theme = "hugo-theme-blueberry-detox"
 publishDir = "../blog"
