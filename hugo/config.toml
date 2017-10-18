@@ -1,5 +1,0 @@
-baseURL = "http://oldbrickhome.com/blog/"
-languageCode = "en-us"
-title = "Old Brick Home | Historic Renovations"
-theme = "hugo-theme-blueberry-detox"
-publishDir = "../blog"
